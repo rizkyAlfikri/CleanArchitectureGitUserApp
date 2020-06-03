@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.alfikri.rizky.cleanarchitecturegituserapp.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_search"
+            app:destination="@id/navigation_search"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+        <argument
+            android:name="query"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.alfikri.rizky.cleanarchitecturegituserapp.ui.search.SearchGitUserFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_navigation_search_to_detailGitUserActivity"
+            app:destination="@id/detailGitUserActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_follower"
+        android:name="com.alfikri.rizky.cleanarchitecturegituserapp.ui.follower.FollowerGitUserFragment"
+        android:label="Follower"
+        tools:layout="@layout/fragment_follower_git_user">
+        <action
+            android:id="@+id/action_navigation_follower_to_detailGitUserActivity"
+            app:destination="@id/detailGitUserActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_following"
+        android:name="com.alfikri.rizky.cleanarchitecturegituserapp.ui.following.FollowingGitUserFragment"
+        android:label="Following"
+        tools:layout="@layout/fragment_following_git_user">
+        <action
+            android:id="@+id/action_navigation_following_to_detailGitUserActivity"
+            app:destination="@id/detailGitUserActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/detailGitUserActivity"
+        android:name="com.alfikri.rizky.cleanarchitecturegituserapp.ui.detail.DetailGitUserActivity"
+        android:label="activity_detail_git_use"
+        tools:layout="@layout/activity_detail_git_use" />
+
+
+</navigation>
